@@ -3774,10 +3774,30 @@ class Application(Frame):
             self.funits.set('in/min')
             self.v_step_len.set("0.01")
             self.accuracy.set("0.001")
+
+            # change all unit measurements to inches from mm
+            self.FEED.set("{0:.3f}".format(float(self.FEED.get()) / 25.4))
+            self.v_bit_dia.set(("{0:.3f}".format(float(self.v_bit_dia.get()) / 25.4)))
+            self.v_depth_lim.set(("{0:.3f}".format(float(self.v_depth_lim.get()) / 25.4)))
+            self.clean_w.set(("{0:.3f}".format(float(self.clean_w.get()) / 25.4)))
+            self.clean_dia.set(("{0:.3f}".format(float(self.clean_dia.get()) / 25.4)))
+            self.ZSAFE.set(("{0:.3f}".format(float(self.ZSAFE.get()) / 25.4)))
+            self.ZCUT.set(("{0:.3f}".format(float(self.ZCUT.get()) / 25.4)))
+            self.YSCALE.set(("{0:.3f}".format(float(self.YSCALE.get()) / 25.4)))
         else:
             self.funits.set('mm/min')
             self.v_step_len.set("0.25")
             self.accuracy.set("0.025")
+
+            # change all unit measurements to mm from inches
+            self.FEED.set("{0:.3f}".format(float(self.FEED.get()) * 25.4))
+            self.v_bit_dia.set(("{0:.3f}".format(float(self.v_bit_dia.get()) * 25.4)))
+            self.v_depth_lim.set(("{0:.3f}".format(float(self.v_depth_lim.get()) * 25.4)))
+            self.clean_w.set(("{0:.3f}".format(float(self.clean_w.get()) * 25.4)))
+            self.clean_dia.set(("{0:.3f}".format(float(self.clean_dia.get()) * 25.4)))
+            self.ZSAFE.set(("{0:.3f}".format(float(self.ZSAFE.get()) * 25.4)))
+            self.ZCUT.set(("{0:.3f}".format(float(self.ZCUT.get()) * 25.4)))
+            self.YSCALE.set(("{0:.3f}".format(float(self.YSCALE.get()) * 25.4)))
         self.Recalc_RQD()
 
     def Listbox_1_Click(self, event): 
